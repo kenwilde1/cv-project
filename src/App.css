@@ -1,38 +1,98 @@
+* {
+  padding: 0;
+  margin: 0.2rem;
+}
+
 .App {
-  text-align: center;
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "sidebar main main"
+    "sidebar main main";
+  gap: 1rem;
+  grid-template-columns: 1fr 2fr 2fr;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  grid-area: header;
+  height: 10vh;
+  background: black;
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+ul {
+  list-style-position: inside;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sidebar {
+  grid-area: sidebar;
+  height: 85vh;
+  border: 2px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-top: 1rem;
+  gap: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.sidebar button {
+  width: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main {
+  grid-area: main;
+  display: grid;
+  gap: 1rem;
+  height: 85vh;
+  border: 2px solid black;
+  padding: 0.5rem;
+}
+
+.main .edu-container,
+.work-container {
+  border: 1px solid black;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main .work-container {
+  border: 2px solid black;
+  padding: 0.5rem;
+}
+
+.buttons {
+  display: flex;
+}
+
+.buttons button {
+  cursor: pointer;
+}
+
+.sidebar-form {
+  width: 85%;
+}
+
+.sidebar-form form {
+  height: 13vh;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+#save {
+  width: 98%;
+}
+
+.hide {
+  display: none;
+}
+
+#edit-btn {
+  cursor: pointer;
 }
