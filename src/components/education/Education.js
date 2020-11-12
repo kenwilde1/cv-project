@@ -10,7 +10,7 @@ class Education extends React.Component {
           return (
             <div className="education" key={item.id}>
               <h3>
-                {item.schoolName}
+                <p>{item.schoolName}</p>
                 <button
                   id={item.schoolName}
                   onClick={editEducation}

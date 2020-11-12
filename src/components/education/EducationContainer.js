@@ -35,7 +35,6 @@ class EducationContainer extends React.Component {
       const school = document.querySelector("#school-name-input-edit");
       const title = document.querySelector("#title-study-input-edit");
       const date = document.querySelector("#date-study-input-edit");
-      console.log(id);
 
       for (let i = 0; i < this.state.educationList.length; i++) {
         if (this.state.educationList[i].schoolName === e.currentTarget.id) {
@@ -115,15 +114,18 @@ class EducationContainer extends React.Component {
   };
 
   deleteEducation = (e) => {
-    const id = e.currentTarget.dataset.id;
+    const id = e.currentTarget.id;
     const targetObjectIndex = this.state.educationList.findIndex(
-      (item) => item.id == id
+      (item) => item.schoolName == id
     );
+    console.log(targetObjectIndex);
     let newArray = [...this.state.educationList];
-    const deletedArray = newArray.splice(1, targetObjectIndex);
+    console.log(newArray[targetObjectIndex]);
+    newArray.splice(targetObjectIndex, 1);
+    console.log(newArray);
 
     this.setState({
-      educationList: deletedArray,
+      educationList: newArray,
     });
   };
 

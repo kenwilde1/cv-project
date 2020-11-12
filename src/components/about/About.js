@@ -1,7 +1,7 @@
 import React from "react";
-import SidebarForm from "./SidebarForm";
+import AboutForm from "./AboutForm";
 
-class Sidebar extends React.Component {
+class About extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -13,8 +13,8 @@ class Sidebar extends React.Component {
   }
 
   displayForm = () => {
-    const sidebarForm = document.querySelector(".sidebar-form");
-    sidebarForm.classList.toggle("hide");
+    const aboutForm = document.querySelector(".about-form");
+    aboutForm.classList.toggle("hide");
   };
 
   onSubmitForm = (e) => {
@@ -34,8 +34,8 @@ class Sidebar extends React.Component {
 
   render() {
     return (
-      <div className="sidebar-container">
-        <div className="sidebar">
+      <div className="about-container">
+        <div className="about">
           <p>
             <b>{this.state.name}</b>
           </p>
@@ -47,15 +47,15 @@ class Sidebar extends React.Component {
           </p>
           <a href={this.state.social}>LinkedIn</a>
         </div>
-        <div className="sidebar-button">
+        <div className="about-button">
           <button id="edit-btn" onClick={this.displayForm}>
             Edit
           </button>
         </div>
-        <SidebarForm info={this.state} func={this.onSubmitForm} />
+        <AboutForm info={this.state} func={this.onSubmitForm} />
       </div>
     );
   }
 }
 
-export default Sidebar;
+export default About;

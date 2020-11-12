@@ -2,7 +2,7 @@ import React from "react";
 
 class Employment extends React.Component {
   render() {
-    const { list, editEmployment } = this.props;
+    const { list, editEmployment, deleteEmployment } = this.props;
     return (
       <div className="employment-items">
         {list.map((item) => {
@@ -16,6 +16,13 @@ class Employment extends React.Component {
                   className="icon-btn"
                 >
                   <i className="fas fa-edit"></i>
+                </button>
+                <button
+                  id={item.companyName}
+                  onClick={deleteEmployment}
+                  className="icon-btn trash"
+                >
+                  <i className="fas fa-trash-alt"></i>
                 </button>
               </h3>
               <ul>

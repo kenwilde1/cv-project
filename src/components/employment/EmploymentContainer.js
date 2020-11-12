@@ -9,11 +9,11 @@ class EmploymentContainer extends React.Component {
       employmentList: [
         {
           id: 0,
-          companyName: "Amazon Web Services",
-          position: "Cloud Support Associate",
-          responsibilites: "uhhhhhh",
-          dateStart: "2009",
-          dateEnd: "2015",
+          companyName: "Boojum",
+          position: "Sales Assistant",
+          responsibilites: "Roll burritos",
+          dateStart: "",
+          dateEnd: "",
         },
       ],
     };
@@ -71,9 +71,16 @@ class EmploymentContainer extends React.Component {
     const dateStart = document.querySelector("#date-start-input").value;
     const dateEnd = document.querySelector("#date-end-input").value;
 
+    let id;
+
+    if (this.state.employmentList.length < 1) {
+      id = 0;
+    } else {
+      id = this.state.employmentList[this.state.employmentList.length - 1];
+    }
+
     const employmentObject = {
-      id:
-        this.state.employmentList[this.state.employmentList.length - 1].id + 1,
+      id: id,
       companyName: company,
       position: position,
       responsibilites: responsibilites,
@@ -120,23 +127,41 @@ class EmploymentContainer extends React.Component {
     form.classList.toggle("hide");
   };
 
+  deleteEmployment = (e) => {
+    const id = e.currentTarget.id;
+    const targetObjectIndex = this.state.employmentList.findIndex(
+      (item) => item.companyName == id
+    );
+    console.log(targetObjectIndex);
+    let newArray = [...this.state.employmentList];
+    console.log(newArray[targetObjectIndex]);
+    newArray.splice(targetObjectIndex, 1);
+    console.log(newArray);
+
+    this.setState({
+      employmentList: newArray,
+    });
+  };
+
   render() {
     const { employmentList } = this.state;
 
     return (
       <div className="employment-container">
         <div className="employment-header">
-          <h2>
-            <u>Employment History</u>
-          </h2>
+          <h2>Employment History</h2>
         </div>
-        <Employment list={employmentList} editEmployment={this.displayForm} />
+        <Employment
+          list={employmentList}
+          editEmployment={this.displayForm}
+          deleteEmployment={this.deleteEmployment}
+        />
         <div className="employment-buttons buttons">
           <button id="add-employment" onClick={this.displayForm}>
             + Add Employment
           </button>
         </div>
-        <EmploymentAddForm addEducation={this.addEmployment} />
+        <EmploymentAddForm addEmployment={this.addEmployment} />
         <EmploymentEditForm
           editEmployment={this.editEmployment}
           info={employmentList}

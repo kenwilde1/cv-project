@@ -1,9 +1,9 @@
 import React from "react";
 
-class SidebarForm extends React.Component {
+class AboutForm extends React.Component {
   render() {
     return (
-      <div className="sidebar-form form-style hide">
+      <div className="about-form form-style hide">
         <input
           type="text"
           id="name"
@@ -32,4 +32,4 @@ class SidebarForm extends React.Component {
   }
 }
 
-export default SidebarForm;
+export default AboutForm;

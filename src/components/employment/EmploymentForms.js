@@ -16,12 +16,8 @@ class EmploymentAddForm extends React.Component {
           placeholder="Responsibilities"
           id="resp-input"
         ></input>
-        <input
-          type="date"
-          placeholder="Start Date"
-          id="date-start-input"
-        ></input>
-        <input type="date" placeholder="End Date" id="date-end-input"></input>
+        <input type="date" id="date-start-input"></input>
+        <input type="date" id="date-end-input"></input>
         <button id="save-employment" onClick={addEmployment}>
           Save
         </button>

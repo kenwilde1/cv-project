@@ -2,7 +2,7 @@
 
 * {
   padding: 0;
-  margin: 0.2rem;
+  margin: 0;
 }
 
 .App {
@@ -44,10 +44,17 @@ button:hover {
   padding: 5px;
 }
 
+#date-start-input,
+#date-end-input {
+  padding: 12px;
+}
+
 /* Header Styling */
 header {
-  grid-area: header;
+  position: fixed;
   height: 10vh;
+  width: 100%;
+  background: white;
   color: #409cff;
   font-size: 2rem;
   display: flex;
@@ -56,17 +63,17 @@ header {
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Sidebar Styling */
+/* about Styling */
 
-.sidebar-container {
+.about-container {
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1rem 10vw 1rem 10vw;
+  margin: 8rem 10vw 1rem 10vw;
 }
 
-.sidebar-container .sidebar {
+.about-container .about {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,18 +82,18 @@ header {
   padding-bottom: 1rem;
 }
 
-.sidebar-button {
+.about-button {
   width: 100%;
   display: flex;
   margin-bottom: 15px;
   margin-left: 25px;
 }
 
-.sidebar-button button {
+.about-button button {
   padding: 4px 50px 4px 50px;
 }
 
-.sidebar-form {
+.about-form {
   margin-bottom: 30px;
   cursor: pointer;
 }
@@ -110,6 +117,7 @@ header {
   color: #409cff;
   cursor: pointer;
   box-shadow: none;
+  width: 20px;
 }
 
 .icon-btn:hover {
@@ -118,7 +126,6 @@ header {
 
 .trash {
   color: red;
-  margin-left: -4px;
 }
 
 /* Education Container Styling */
@@ -156,8 +163,26 @@ header {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.5);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: pointer;
+  padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 2px;
+}
+
+.education h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.education h3 button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+}
+
+.education h3 button:hover {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .education:hover {
@@ -179,10 +204,10 @@ header {
   align-items: center;
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.3);
   padding-left: 10px;
-  padding-bottom: 25px;
+  padding-bottom: 12px;
   margin-left: 10vw;
   margin-right: 10vw;
-  margin-bottom: 100px;
+  margin-bottom: 150px;
 }
 
 .employment-header {
@@ -209,6 +234,7 @@ header {
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: pointer;
   padding-bottom: 10px;
+  padding-top: 10px;
   border-radius: 2px;
 }
 
@@ -220,7 +246,54 @@ header {
   display: flex;
   align-items: center;
   width: 100%;
-  margin-bottom: 15px;
+}
+
+.employment h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.employment h3 button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+}
+
+.employment h3 button:hover {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.employment-form {
+  margin-top: 50px;
+  margin-bottom: 35px;
+}
+
+/* Footer */
+
+footer {
+  height: 6vh;
+  width: 100%;
+  background: white;
+  color: #409cff;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.github-logo {
+}
+
+.github-logo button {
+  background: white;
+  color: #409cff;
+  box-shadow: none;
+  height: ;
+
+  padding: 10px 10px 10px 10px;
 }
 
 .hide {
