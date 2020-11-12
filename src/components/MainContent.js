@@ -1,6 +1,6 @@
 import React from "react";
 import EducationContainer from "./education/EducationContainer";
-import Employment from "./Employment";
+import EmploymentContainer from "./employment/EmploymentContainer";
 
 class MainContent extends React.Component {
   constructor() {
@@ -20,7 +20,7 @@ class MainContent extends React.Component {
     return (
       <div className="main">
         <EducationContainer />
-        <Employment info={this.state.work} />
+        <EmploymentContainer />
       </div>
     );
   }

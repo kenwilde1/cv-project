@@ -34,14 +34,24 @@ class Sidebar extends React.Component {
 
   render() {
     return (
-      <div className="sidebar">
-        <p>{this.state.name}</p>
-        <p>Email: {this.state.email}</p>
-        <p>Phone: {this.state.phone}</p>
-        <a href={this.state.social}>LinkedIn</a>
-        <button id="edit-btn" onClick={this.displayForm}>
-          Edit
-        </button>
+      <div className="sidebar-container">
+        <div className="sidebar">
+          <p>
+            <b>{this.state.name}</b>
+          </p>
+          <p>
+            <b>Email:</b> {this.state.email}
+          </p>
+          <p>
+            <b>Phone:</b> {this.state.phone}
+          </p>
+          <a href={this.state.social}>LinkedIn</a>
+        </div>
+        <div className="sidebar-button">
+          <button id="edit-btn" onClick={this.displayForm}>
+            Edit
+          </button>
+        </div>
         <SidebarForm info={this.state} func={this.onSubmitForm} />
       </div>
     );

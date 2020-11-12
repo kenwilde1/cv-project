@@ -26,6 +26,11 @@ class EducationContainer extends React.Component {
       const form = document.querySelector(".education-edit-form");
       form.classList.toggle("hide");
 
+      const formTwo = document.querySelector(".education-form");
+      if (!formTwo.classList.contains("hide")) {
+        formTwo.classList.toggle("hide");
+      }
+
       const id = document.querySelector("#save-education-edit");
       const school = document.querySelector("#school-name-input-edit");
       const title = document.querySelector("#title-study-input-edit");
@@ -59,8 +64,16 @@ class EducationContainer extends React.Component {
     const title = document.querySelector("#title-study-input").value;
     const date = document.querySelector("#date-study-input").value;
 
+    let id;
+
+    if (this.state.educationList.length < 1) {
+      id = 0;
+    } else {
+      id = this.state.educationList[this.state.educationList.length - 1].id + 1;
+    }
+
     const educationObject = {
-      id: this.state.educationList[this.state.educationList.length - 1].id + 1,
+      id: id,
       schoolName: school,
       titleOfStudy: title,
       dateOfStudy: date,
@@ -96,9 +109,23 @@ class EducationContainer extends React.Component {
     this.setState({
       educationList: newArray,
     });
+
+    const form = document.querySelector(".education-edit-form");
+    form.classList.toggle("hide");
   };
 
-  displayEditForm = (item) => {};
+  deleteEducation = (e) => {
+    const id = e.currentTarget.dataset.id;
+    const targetObjectIndex = this.state.educationList.findIndex(
+      (item) => item.id == id
+    );
+    let newArray = [...this.state.educationList];
+    const deletedArray = newArray.splice(1, targetObjectIndex);
+
+    this.setState({
+      educationList: deletedArray,
+    });
+  };
 
   render() {
     const { educationList } = this.state;
@@ -106,21 +133,23 @@ class EducationContainer extends React.Component {
     return (
       <div className="edu-container">
         <div className="education-header">
-          <h2>
-            <u>Educational History</u>
-          </h2>
+          <h2>Educational History</h2>
         </div>
-        <Education info={educationList} editEducation={this.displayForm} />
-        <EducationAddForm addEducation={this.addEducation} />
-        <EducationEditForm
-          editEducation={this.editEducation}
-          info={this.state.educationList}
+        <Education
+          info={educationList}
+          editEducation={this.displayForm}
+          deleteEducation={this.deleteEducation}
         />
         <div className="education-buttons buttons">
           <button id="add-education" onClick={this.displayForm}>
             + Add Education
           </button>
         </div>
+        <EducationAddForm addEducation={this.addEducation} />
+        <EducationEditForm
+          editEducation={this.editEducation}
+          info={this.state.educationList}
+        />
       </div>
     );
   }
