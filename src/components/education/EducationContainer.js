@@ -72,8 +72,8 @@ class EducationContainer extends React.Component {
     e.preventDefault();
     const school = document.querySelector("#school-name-input").value;
     const title = document.querySelector("#title-study-input").value;
-    const startDate = document.querySelector("#start-date-input");
-    const endDate = document.querySelector("#end-date-input");
+    const startDate = document.querySelector("#start-date-input").value;
+    const endDate = document.querySelector("#end-date-input").value;
 
     let id;
 

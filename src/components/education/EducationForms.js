@@ -15,12 +15,8 @@ class EducationAddForm extends React.Component {
           placeholder="Title of Study"
           id="title-study-input"
         ></input>
-        <input
-          type="date"
-          placeholder="Start Date: "
-          id="start-date-input"
-        ></input>
-        <input type="date" placeholder="End Date: " id="end-date-input"></input>
+        <input type="date" id="start-date-input"></input>
+        <input type="date" id="end-date-input"></input>
         <button id="save-education" onClick={addEducation}>
           Save Changes
         </button>
