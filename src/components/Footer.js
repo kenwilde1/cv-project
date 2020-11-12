@@ -11,7 +11,7 @@ class Footer extends React.Component {
           target="_blank"
         >
           <button>
-            <i class="fab fa-github"></i>
+            <i className="fab fa-github"></i>
           </button>
         </form>
       </footer>

@@ -28,7 +28,8 @@ class Education extends React.Component {
               </h3>
               <ul>
                 <li>Title of Study: {item.titleOfStudy}</li>
-                <li>Date of Study: {item.dateOfStudy}</li>
+                <li>Start Date: {item.startDate}</li>
+                <li>End Date: {item.endDate}</li>
               </ul>
             </div>
           );

@@ -299,3 +299,55 @@ footer {
 .hide {
   display: none;
 }
+
+@media (max-width: 500px) {
+  /* Mobile Styling */
+  header {
+    font-size: 1.5rem;
+  }
+
+  .about-container {
+    margin: 8rem 5vw 1rem 5vw;
+  }
+
+  .edu-container,
+  .employment-container {
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+
+  .about-button {
+    justify-content: center;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  .employment-header,
+  .education-header {
+    margin-top: 20px;
+  }
+
+  .education {
+    padding: 10px;
+  }
+
+  .employment-buttons,
+  .education-buttons {
+    justify-content: center;
+    margin: 20px 0 20px 0px;
+  }
+
+  .icon-btn {
+    height: 25px;
+    width: 10px;
+  }
+  .trash {
+    height: 25px;
+    width: 20px;
+    margin-left: -20px;
+  }
+
+  .form-style {
+    width: 50vw;
+  }
+}

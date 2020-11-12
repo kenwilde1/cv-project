@@ -23,11 +23,22 @@ class EmploymentContainer extends React.Component {
     if (e.currentTarget.id === "add-employment") {
       const form = document.querySelector(".employment-form");
       form.classList.toggle("hide");
+
+      const formTwo = document.querySelector(".employment-edit-form");
+      if (!formTwo.classList.contains("hide")) {
+        formTwo.classList.toggle("hide");
+      }
+
       this.clearForm();
     } else {
       console.log("hi");
       const form = document.querySelector(".employment-edit-form");
       form.classList.toggle("hide");
+
+      const formTwo = document.querySelector(".employment-form");
+      if (!formTwo.classList.contains("hide")) {
+        formTwo.classList.toggle("hide");
+      }
 
       const id = document.querySelector("#save-employment-edit");
       const company = document.querySelector("#company-name-input-edit");

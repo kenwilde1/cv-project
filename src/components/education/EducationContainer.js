@@ -9,9 +9,10 @@ class EducationContainer extends React.Component {
       educationList: [
         {
           id: 0,
-          schoolName: "Donabate Community College",
-          titleOfStudy: "Leaving Certificate",
-          dateOfStudy: "2009-2015",
+          schoolName: "Hogwarts",
+          titleOfStudy: "Gryffindor",
+          startDate: "2009",
+          endDate: "2010",
         },
       ],
     };
@@ -21,6 +22,12 @@ class EducationContainer extends React.Component {
     if (e.currentTarget.id === "add-education") {
       const form = document.querySelector(".education-form");
       form.classList.toggle("hide");
+
+      const formTwo = document.querySelector(".education-edit-form");
+      if (!formTwo.classList.contains("hide")) {
+        formTwo.classList.toggle("hide");
+      }
+
       this.clearForm();
     } else {
       const form = document.querySelector(".education-edit-form");
@@ -34,14 +41,16 @@ class EducationContainer extends React.Component {
       const id = document.querySelector("#save-education-edit");
       const school = document.querySelector("#school-name-input-edit");
       const title = document.querySelector("#title-study-input-edit");
-      const date = document.querySelector("#date-study-input-edit");
+      const startDate = document.querySelector("#start-date-input-edit");
+      const endDate = document.querySelector("#end-date-input-edit");
 
       for (let i = 0; i < this.state.educationList.length; i++) {
         if (this.state.educationList[i].schoolName === e.currentTarget.id) {
           id.dataset.id = this.state.educationList[i].id;
           school.value = this.state.educationList[i].schoolName;
           title.value = this.state.educationList[i].titleOfStudy;
-          date.value = this.state.educationList[i].dateOfStudy;
+          startDate.value = this.state.educationList[i].startDate;
+          endDate.value = this.state.educationList[i].endDate;
         }
       }
     }
@@ -50,18 +59,21 @@ class EducationContainer extends React.Component {
   clearForm = () => {
     let school = document.querySelector("#school-name-input");
     let title = document.querySelector("#title-study-input");
-    let date = document.querySelector("#date-study-input");
+    let startDate = document.querySelector("#start-date-input");
+    let endDate = document.querySelector("#end-date-input");
 
     school.value = "";
     title.value = "";
-    date.value = "";
+    startDate.value = "";
+    endDate.value = "";
   };
 
   addEducation = (e) => {
     e.preventDefault();
     const school = document.querySelector("#school-name-input").value;
     const title = document.querySelector("#title-study-input").value;
-    const date = document.querySelector("#date-study-input").value;
+    const startDate = document.querySelector("#start-date-input");
+    const endDate = document.querySelector("#end-date-input");
 
     let id;
 
@@ -75,7 +87,8 @@ class EducationContainer extends React.Component {
       id: id,
       schoolName: school,
       titleOfStudy: title,
-      dateOfStudy: date,
+      startDate: startDate,
+      endDate: endDate,
     };
 
     this.setState({
@@ -84,7 +97,6 @@ class EducationContainer extends React.Component {
 
     const form = document.querySelector(".education-form");
     form.classList.toggle("hide");
-    console.log(this.state.educationList);
   };
 
   editEducation = (e) => {
@@ -92,7 +104,8 @@ class EducationContainer extends React.Component {
     const id = e.currentTarget.dataset.id;
     const school = document.querySelector("#school-name-input-edit").value;
     const title = document.querySelector("#title-study-input-edit").value;
-    const date = document.querySelector("#date-study-input-edit").value;
+    const startDate = document.querySelector("#start-date-input-edit").value;
+    const endDate = document.querySelector("#end-date-input-edit").value;
 
     const targetObjectIndex = this.state.educationList.findIndex(
       (item) => item.id == id
@@ -102,7 +115,8 @@ class EducationContainer extends React.Component {
       id: id,
       schoolName: school,
       titleOfStudy: title,
-      dateOfStudy: date,
+      startDate: startDate,
+      endDate: endDate,
     };
 
     this.setState({
@@ -118,11 +132,8 @@ class EducationContainer extends React.Component {
     const targetObjectIndex = this.state.educationList.findIndex(
       (item) => item.schoolName == id
     );
-    console.log(targetObjectIndex);
     let newArray = [...this.state.educationList];
-    console.log(newArray[targetObjectIndex]);
     newArray.splice(targetObjectIndex, 1);
-    console.log(newArray);
 
     this.setState({
       educationList: newArray,

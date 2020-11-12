@@ -17,9 +17,10 @@ class EducationAddForm extends React.Component {
         ></input>
         <input
           type="date"
-          placeholder="Date of Study"
-          id="date-study-input"
+          placeholder="Start Date: "
+          id="start-date-input"
         ></input>
+        <input type="date" placeholder="End Date: " id="end-date-input"></input>
         <button id="save-education" onClick={addEducation}>
           Save Changes
         </button>
@@ -30,13 +31,14 @@ class EducationAddForm extends React.Component {
 
 class EducationEditForm extends React.Component {
   render() {
-    const { info, editEducation } = this.props;
+    const { editEducation } = this.props;
 
     return (
       <div className="education-edit-form form-style hide">
         <input type="text" id="school-name-input-edit"></input>
         <input type="text" id="title-study-input-edit"></input>
-        <input type="date" id="date-study-input-edit"></input>
+        <input type="date" id="start-date-input-edit"></input>
+        <input type="date" id="end-date-input-edit"></input>
         <button id="save-education-edit" onClick={editEducation}>
           Save
         </button>
