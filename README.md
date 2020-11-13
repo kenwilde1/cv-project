@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# CV Project
 
 CV Creator made using create-react-app, JS, HTML & CSS. 
 
